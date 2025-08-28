@@ -1,0 +1,137 @@
+/* Modern UI — login.css */
+:root {
+  --bg: #0b0f14;
+  --card: #0f1720;
+  --text: #e6e9ef;
+  --muted: #9aa4b2;
+  --accent: #6ea8fe;
+  --accent-2: #b388ff;
+  --border: #1d2633;
+  --danger: #ff6b6b;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: radial-gradient(
+      1200px 600px at 10% -10%,
+      rgba(110, 168, 254, 0.25),
+      transparent 40%
+    ),
+    radial-gradient(
+      900px 500px at 110% 10%,
+      rgba(179, 136, 255, 0.18),
+      transparent 35%
+    ),
+    #0b0f14;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Apple SD Gothic Neo,
+    Noto Sans KR, sans-serif;
+}
+a {
+  color: var(--accent);
+}
+a:hover {
+  filter: brightness(1.08);
+}
+
+header nav {
+  padding: 12px 16px;
+}
+
+main {
+  max-width: 460px;
+  margin: 56px auto;
+  padding: 0 16px;
+}
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+
+/* 필드 */
+label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #f5f7fb;
+}
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0b1118;
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+input::placeholder {
+  color: color-mix(in oklab, var(--muted) 60%, white);
+}
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 30%, white);
+  background: #0d131c;
+}
+
+/* 버튼 */
+.btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #1a2635, #152030);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.btn:hover {
+  filter: brightness(1.06);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--accent) 45%, white);
+  outline-offset: 2px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+.msg {
+  min-height: 1em;
+  margin-top: 10px;
+  color: var(--danger);
+  font-size: 14px;
+}
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+.footer {
+  max-width: 460px;
+  margin: 28px auto 48px;
+  color: var(--muted);
+  text-align: center;
+}

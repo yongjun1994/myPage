@@ -1,0 +1,59 @@
+<!-- myPage/html/login.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>로그인 | MyPage</title>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <header>
+      <nav aria-label="빵부스러기">
+        <a href="./main.html">홈</a> › <span aria-current="page">로그인</span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="login-title">
+        <h1 id="login-title">로그인</h1>
+
+        <form id="loginForm">
+          <fieldset>
+            <legend class="sr-only">로그인 정보</legend>
+
+            <label for="email">이메일</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="example@email.com"
+              required
+            />
+
+            <label for="password">비밀번호</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="비밀번호"
+              required
+            />
+
+            <button class="btn" type="submit">로그인</button>
+            <p class="muted">
+              계정이 없나요? <a href="./signup.html">회원가입</a>
+            </p>
+            <p id="loginMsg" class="msg" role="alert" aria-live="polite"></p>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 MyPage Demo</small>
+    </footer>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>

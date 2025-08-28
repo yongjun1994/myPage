@@ -1,0 +1,48 @@
+/* Modern UI — main.css */
+:root{
+  --bg:#0b0f14;           /* 차콜 배경 */
+  --card:#0f1720;         /* 딥 슬레이트 카드 */
+  --text:#e6e9ef;         /* 고명도 텍스트 */
+  --muted:#9aa4b2;        /* 보조 텍스트 */
+  --accent:#6ea8fe;       /* 네온 블루 */
+  --accent-2:#b388ff;     /* 라일락 퍼플 */
+  --border:#1d2633;       /* 경계선 */
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --glass:rgba(255,255,255,.04);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:linear-gradient(180deg,#0a0e13,#0b1118 40%,#0c121a);
+  color:var(--text);
+  font-family: ui-sans-serif,system-ui,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;
+  line-height:1.55;
+}
+
+/* 링크 */
+a{color:var(--accent);text-decoration:none}
+a:hover{filter:brightness(1.08)}
+
+/* 헤더/네비 */
+header nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;
+  backdrop-filter: blur(8px);
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:10;
+}
+.logo{margin:0;font-size:18px;font-weight:700;letter-spacing:.2px}
+.menu{list-style:none;display:flex;gap:12px;margin:0;padding:0}
+.menu a,.menu button{color:var(--text)}
+.menu a[aria-current="page"]{
+  color:var(--accent);
+  text-decoration:underline;text-underline-offset:4px;
+}
+
+/* 버튼 */
+.btn{
+  padding:10px 14px;border-radius:12px;
+  border:1px solid var(--border);
+  background:linear-grad

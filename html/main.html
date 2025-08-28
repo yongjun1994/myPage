@@ -1,0 +1,73 @@
+<!-- myPage/html/main.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>자기소개 | MyPage</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav aria-label="주요">
+        <h1 class="logo">MyPage</h1>
+        <ul class="menu">
+          <li><a href="./main.html" aria-current="page">홈</a></li>
+          <li><a href="./login.html">로그인</a></li>
+          <li><a href="./signup.html">회원가입</a></li>
+          <li>
+            <button id="btnLogout" class="btn btn-ghost" type="button">
+              로그아웃
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <article class="card" aria-labelledby="intro-title">
+        <header>
+          <h2 id="intro-title">자기소개</h2>
+        </header>
+        <section>
+          <p id="welcomeMsg" class="lead">로그인 상태를 확인하는 중...</p>
+          <p>
+            안녕하세요. 풀스택 개발자 홍길동입니다. 현재 NestJs, Node.js를
+            사용하고 있습니다.
+          </p>
+        </section>
+        <footer class="actions">
+          <a class="btn" href="./login.html">로그인</a>
+          <a class="btn btn-outline" href="./signup.html">회원가입</a>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 MyPage Demo</small>
+    </footer>
+
+    <script>
+      // 로그인 사용자 표시 + 로그아웃
+      const welcomeMsg = document.getElementById("welcomeMsg");
+      const btnLogout = document.getElementById("btnLogout");
+      const currentUser = JSON.parse(
+        localStorage.getItem("currentUser") || "null"
+      );
+
+      if (currentUser) {
+        welcomeMsg.textContent = `${
+          currentUser.nickname || currentUser.name || currentUser.email
+        }님, 반가워요!`;
+      } else {
+        welcomeMsg.textContent = "로그인 후 더 많은 기능을 사용할 수 있어요.";
+      }
+
+      btnLogout.addEventListener("click", () => {
+        localStorage.removeItem("currentUser");
+        alert("로그아웃 되었습니다.");
+        location.reload();
+      });
+    </script>
+  </body>
+</html>

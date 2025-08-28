@@ -1,0 +1,247 @@
+<!-- myPage/html/signup.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>회원가입 | MyPage</title>
+    <link rel="stylesheet" href="../css/signup.css" />
+    <!-- 카카오(다음) 우편번호 API -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="빵부스러기">
+        <a href="./main.html">홈</a> › <span aria-current="page">회원가입</span>
+      </nav>
+    </header>
+
+    <main>
+      <article class="card" aria-labelledby="signup-title">
+        <h1 id="signup-title">회원가입</h1>
+
+        <form id="signupForm" novalidate>
+          <fieldset>
+            <legend>기본 정보</legend>
+
+            <label for="email">이메일 *</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="example@email.com"
+              required
+            />
+            <small id="msg-email" class="hint" aria-live="polite"></small>
+
+            <div class="grid-2">
+              <div>
+                <label for="password">비밀번호 *</label>
+                <div class="with-toggle">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="8자 이상 (문자+숫자)"
+                    required
+                  />
+                  <button
+                    type="button"
+                    id="togglePw1"
+                    class="toggle"
+                    aria-label="비밀번호 보기 토글"
+                  >
+                    보기
+                  </button>
+                </div>
+                <small
+                  id="msg-password"
+                  class="hint"
+                  aria-live="polite"
+                ></small>
+              </div>
+
+              <div>
+                <label for="confirmPassword">비밀번호 확인 *</label>
+                <div class="with-toggle">
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="비밀번호 확인"
+                    required
+                  />
+                  <button
+                    type="button"
+                    id="togglePw2"
+                    class="toggle"
+                    aria-label="비밀번호 확인 보기 토글"
+                  >
+                    보기
+                  </button>
+                </div>
+                <small
+                  id="msg-confirmPassword"
+                  class="hint"
+                  aria-live="polite"
+                ></small>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div>
+                <label for="name">이름 *</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="이름"
+                  required
+                />
+                <small id="msg-name" class="hint" aria-live="polite"></small>
+              </div>
+              <div>
+                <label for="nickname">닉네임 *</label>
+                <input
+                  id="nickname"
+                  name="nickname"
+                  type="text"
+                  placeholder="닉네임"
+                  required
+                />
+                <small
+                  id="msg-nickname"
+                  class="hint"
+                  aria-live="polite"
+                ></small>
+              </div>
+            </div>
+
+            <label for="phone">핸드폰 번호 *</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputmode="numeric"
+              placeholder="010-1234-5678"
+              required
+            />
+            <small id="msg-phone" class="hint" aria-live="polite"></small>
+          </fieldset>
+
+          <fieldset>
+            <legend>주소</legend>
+
+            <div class="grid-3">
+              <div>
+                <label for="postcode">우편번호</label>
+                <input
+                  id="postcode"
+                  name="postcode"
+                  type="text"
+                  placeholder="우편번호"
+                  readonly
+                />
+              </div>
+              <div class="align-end">
+                <button type="button" id="btnPostcode" class="btn">
+                  우편번호 찾기
+                </button>
+              </div>
+            </div>
+
+            <label for="roadAddress">도로명 주소</label>
+            <input
+              id="roadAddress"
+              name="roadAddress"
+              type="text"
+              placeholder="도로명 주소"
+              readonly
+            />
+
+            <label for="detailAddress">상세 주소</label>
+            <input
+              id="detailAddress"
+              name="detailAddress"
+              type="text"
+              placeholder="상세 주소"
+            />
+          </fieldset>
+
+          <fieldset>
+            <legend>약관 동의</legend>
+
+            <div class="agree">
+              <label>
+                <input type="checkbox" id="agreeAll" />
+                전체 동의
+              </label>
+            </div>
+            <hr />
+            <div class="agree">
+              <label>
+                <input
+                  type="checkbox"
+                  class="agree-item"
+                  data-required="true"
+                  id="agreeTos"
+                />
+                (필수) 이용약관 동의
+              </label>
+              <a
+                class="link"
+                href="#"
+                onclick="alert('샘플 약관입니다.');return false;"
+                >보기</a
+              >
+            </div>
+            <div class="agree">
+              <label>
+                <input
+                  type="checkbox"
+                  class="agree-item"
+                  data-required="true"
+                  id="agreePrivacy"
+                />
+                (필수) 개인정보 수집 및 이용 동의
+              </label>
+              <a
+                class="link"
+                href="#"
+                onclick="alert('샘플 개인정보 처리방침입니다.');return false;"
+                >보기</a
+              >
+            </div>
+            <div class="agree">
+              <label>
+                <input
+                  type="checkbox"
+                  class="agree-item"
+                  data-required="false"
+                  id="agreeMarketing"
+                />
+                (선택) 마케팅 정보 수신 동의
+              </label>
+            </div>
+            <small id="msg-agree" class="hint" aria-live="polite"></small>
+          </fieldset>
+
+          <div class="actions">
+            <button class="btn" type="submit">가입하기</button>
+            <a class="btn btn-outline" href="./login.html" role="button"
+              >로그인</a
+            >
+          </div>
+
+          <p id="signupMsg" class="msg" role="alert" aria-live="polite"></p>
+        </form>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 MyPage Demo</small>
+    </footer>
+
+    <script src="../js/signup.js"></script>
+  </body>
+</html>

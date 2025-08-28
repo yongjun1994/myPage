@@ -1,0 +1,227 @@
+/* Modern UI — signup.css */
+:root {
+  --bg: #0b0f14;
+  --card: #0f1720;
+  --text: #e6e9ef;
+  --muted: #9aa4b2;
+  --accent: #6ea8fe;
+  --accent-2: #b388ff;
+  --border: #1d2633;
+  --ok: #32d583;
+  --danger: #ff6b6b;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: radial-gradient(
+      1200px 800px at -10% -20%,
+      rgba(179, 136, 255, 0.14),
+      transparent 40%
+    ),
+    radial-gradient(
+      1000px 700px at 120% -10%,
+      rgba(110, 168, 254, 0.18),
+      transparent 45%
+    ),
+    linear-gradient(180deg, #0b0f14, #0b1118 50%, #0c121a);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Apple SD Gothic Neo,
+    Noto Sans KR, sans-serif;
+}
+a {
+  color: var(--accent);
+}
+a:hover {
+  filter: brightness(1.08);
+}
+header nav {
+  padding: 12px 16px;
+}
+
+main {
+  max-width: 860px;
+  margin: 44px auto;
+  padding: 0 16px;
+}
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+h1 {
+  margin-top: 0;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+}
+
+/* 필드셋 */
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 18px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+}
+legend {
+  padding: 0 8px;
+  color: #f5f7fb;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* 라벨/인풋 */
+label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #f5f7fb;
+}
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0b1118;
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+input::placeholder {
+  color: color-mix(in oklab, var(--muted) 60%, white);
+}
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 30%, white);
+  background: #0d131c;
+}
+
+/* 그리드 */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 720px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 패스워드 토글 */
+.with-toggle {
+  position: relative;
+}
+.toggle {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #121b28;
+  color: #d6deeb;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  font-size: 12px;
+}
+.toggle:hover {
+  filter: brightness(1.08);
+}
+.toggle:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--accent) 45%, white);
+  outline-offset: 2px;
+}
+
+/* 힌트/메시지 */
+.hint {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 1.2em;
+}
+.hint.ok {
+  color: var(--ok);
+}
+.hint.err {
+  color: var(--danger);
+}
+.msg {
+  min-height: 1em;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* 약관 */
+.agree {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 8px 0;
+}
+.link {
+  font-size: 13px;
+  color: var(--accent);
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 8px 0;
+}
+
+/* 버튼 */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #1a2635, #152030);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.06s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover {
+  filter: brightness(1.06);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-outline {
+  background: transparent;
+}
+.btn:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--accent) 45%, white);
+  outline-offset: 2px;
+}
+
+/* 자잘한 정렬 */
+.align-end {
+  display: flex;
+  align-items: end;
+}
